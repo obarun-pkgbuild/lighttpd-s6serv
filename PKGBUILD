@@ -10,9 +10,11 @@ depends=('lighttpd' 's6' 's6-rc' 's6-boot')
 conflicts=()
 source=('lighttpd.daemon.run.s6'
 		'lighttpd.log.run.s6'
+		'lighttpd.logd'
 		'LICENSE')
 md5sums=('b78e3d9ea8e146aa68185de3bbbab8e3'
          'ec6f04cf005f4c718f35ce5091dac288'
+         'f3fbb3a7d0900001926da45905f8f463'
          '191a37ae657aa17e37e75d0242865dba')
 
 package() {
