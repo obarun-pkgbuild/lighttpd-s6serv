@@ -2,13 +2,12 @@
 
 pkgname=lighttpd-s6serv
 pkgver=0.1
-pkgrel=1
+pkgrel=2
 pkgdesc="lighttpd service for s6"
 arch=(x86_64)
 license=('beerware')
 depends=('lighttpd' 's6' 's6-rc' 's6-boot')
 conflicts=()
-install=lighttpd-s6serv.install
 source=('lighttpd.daemon.run.s6'
 		'lighttpd.log.run.s6'
 		'LICENSE')
@@ -23,6 +22,7 @@ package() {
 	
 	# log
 	install -Dm 0755 "$srcdir/lighttpd.log.run.s6" "$pkgdir/etc/s6-serv/available/classic/lighttpd/log/run"
+	install -Dm 0644 "$srcdir/lighttpd.logd" "$pkgdir/etc/s6-serv/log.d/lighttpd"
 	
 	install -Dm 0644 "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/lighttpd-s6serv/LICENSE"
 }
